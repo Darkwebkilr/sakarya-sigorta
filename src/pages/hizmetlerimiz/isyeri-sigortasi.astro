@@ -1,10 +1,14 @@
 ---
 import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "İş Yeri Sigortası");
 ---
 
 <ServiceDetailLayout
-  title="İş Yeri Sigortası"
-  description="İş yerinizi ve içindeki demirbaşları yangın, hırsızlık, su baskını gibi birçok riske karşı koruma altına alan kapsamlı bir sigortadır."
+  title={service.name}
+  description={service.description}
+  image={service.image}
 >
   <p class="mb-4">
     İş Yeri Sigortası, işletmenizi ve iş yerinizdeki tüm varlıklarınızı (bina, demirbaşlar, makineler, emtia vb.) yangından hırsızlığa, su baskınından doğal afetlere kadar birçok riske karşı güvence altına alan kapsamlı bir sigorta çözümüdür. İşletmenizin sürekliliği ve finansal güvenliği için iş yeri sigortası büyük önem taşır.

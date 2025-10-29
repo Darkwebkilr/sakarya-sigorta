@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import Logo from "../assets/Logo.png";
+import Image from "astro/components/Image.astro";
 
 const servicesLinks = [
   { name: "Kasko Sigortası", url: "/teklif/kasko-sigortasi" },
@@ -30,8 +32,8 @@ const socialLinks = [
       <!-- Column 1: Logo & About -->
       <div class="footer-col">
         <a href="/" class="flex items-center gap-2 text-xl font-bold mb-4">
-          <img
-            src="/img/Logo.png"
+          <Image
+            src={Logo}
             alt="Sakarya Kaya Sigorta Logo"
             class="h-32 w-auto"
           />

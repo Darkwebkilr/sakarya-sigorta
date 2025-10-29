@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { services } from "../data/services";
+import Logo from '../assets/Logo.png';
 
 const healthSubLinks = [
   services.find(s => s.name === "Özel Sağlık Sigortası"),
@@ -73,7 +74,7 @@ const offerDropdownLinks = [
       <!-- Logo -->
       <a href="/" class="flex items-center font-bold text-gray-800">
         <img
-          src="../../public/img/Logo.png"
+          src={Logo}
           alt="Sigorta Logo"
           class="w-28 lg:h-32 lg:w-36"
         />
