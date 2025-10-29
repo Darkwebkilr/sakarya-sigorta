@@ -1,0 +1,29 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Zorunlu Trafik Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Zorunlu Trafik Sigortası, trafikte meydana gelebilecek kazalarda üçüncü şahıslara verilebilecek maddi ve bedeni zararları karşılamak üzere devlet tarafından zorunlu kılınan bir sigorta türüdür. Bu sigorta, sizin kusurlu olduğunuz bir kazada karşı tarafın hasarlarını teminat altına alır.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Zorunlu Trafik Sigortası Yaptırmalısınız?</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Yasal bir zorunluluktur, sigortasız araç kullanmak cezai işlem gerektirir.</li>
+    <li>Kaza anında karşı tarafın maddi ve bedeni zararlarını karşılar.</li>
+    <li>Beklenmedik yüksek maliyetli tazminat taleplerine karşı sizi korur.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Zorunlu Trafik Sigortası Kapsamı</h2>
+  <p class="mb-4">
+    Trafik sigortası, kaza başına ve kişi başına belirlenen limitler dahilinde, karşı tarafın araç hasarını, tedavi giderlerini, sürekli sakatlık ve vefat tazminatlarını karşılar. Kendi aracınızdaki hasarları karşılamaz, bunun için kasko sigortası yaptırmanız gerekmektedir.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, size en uygun fiyatlarla zorunlu trafik sigortası teklifleri sunarak, trafikte güvenle yer almanızı sağlıyoruz.
+  </p>
+</ServiceDetailLayout>

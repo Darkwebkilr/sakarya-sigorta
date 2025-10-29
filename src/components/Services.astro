@@ -1,0 +1,81 @@
+---
+import Card from './Card.astro';
+
+const services = [
+  {
+    title: 'Kasko Sigortası',
+    description: 'Aracınız için çarpma, çalınma ve yanma gibi risklere karşı tam güvence.',
+    icon: 'mdi:car',
+    url: '/teklif/kasko-sigortasi'
+  },
+  {
+    title: 'Zorunlu Trafik Sigortası',
+    description: 'Trafiğe çıkmadan önce yaptırmanız gereken yasal bir zorunluluktur.',
+    icon: 'mdi:traffic-light',
+    url: '/teklif/trafik-sigortasi'
+  },
+  {
+    title: 'Özel Sağlık Sigortası',
+    description: 'Anlaşmalı özel hastanelerde masraflarınızı karşılayan geniş kapsamlı sigorta.',
+    icon: 'mdi:hospital-box',
+    url: '/teklif/ozel-saglik-sigortasi'
+  },
+  {
+    title: 'Tamamlayıcı Sağlık',
+    description: 'SGK anlaşmalı özel hastanelerdeki fark ücretlerini karşılar.',
+    icon: 'mdi:plus-box',
+    url: '/teklif/tamamlayici-saglik-sigortasi'
+  },
+  {
+    title: 'Konut Sigortası',
+    description: 'Evinizi ve eşyalarınızı yangın, hırsızlık ve su baskını gibi risklere karşı korur.',
+    icon: 'mdi:home',
+    url: '/teklif/konut-sigortasi'
+  },
+  {
+    title: 'DASK Sigortası',
+    description: 'Deprem ve deprem sonucu oluşabilecek hasarlara karşı zorunlu güvence.',
+    icon: 'mdi:home-city',
+    url: '/teklif/dask-sigortasi'
+  },
+  {
+    title: 'Ferdi Kaza Sigortası',
+    description: 'Beklenmedik kazalar sonucu oluşabilecek tedavi masraflarını karşılar.',
+    icon: 'mdi:account-heart',
+    url: '/teklif/ferdi-kaza-sigortasi'
+  },
+  {
+    title: 'Seyahat Sigortası',
+    description: 'Yurt içi ve yurt dışı seyahatlerinizde karşılaşabileceğiniz risklere karşı güvence.',
+    icon: 'mdi:airplane',
+    url: '/teklif/seyahat-sigortasi'
+  },
+  {
+    title: 'İş Yeri Sigortası',
+    description: 'İş yerinizi ve içindeki demirbaşları yangın, hırsızlık gibi risklere karşı korur.',
+    icon: 'mdi:store',
+    url: '/teklif/is-yeri-sigortasi'
+  }
+];
+---
+
+<section class="py-20 bg-[#F5F5F5]">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800">Hizmetlerimiz</h2>
+      <p class="text-gray-600 mt-2">Size en uygun sigorta çözümleriyle tanışın.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div data-aos="fade-up" data-aos-delay={index * 100}>
+          <Card 
+            title={service.title} 
+            description={service.description} 
+            icon={service.icon} 
+            url={service.url}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

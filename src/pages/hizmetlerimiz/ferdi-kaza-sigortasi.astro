@@ -1,0 +1,30 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Ferdi Kaza Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Ferdi Kaza Sigortası, günlük hayatınızda veya işinizde karşılaşabileceğiniz ani ve beklenmedik kazalar sonucunda oluşabilecek maddi kayıplara karşı sizi ve sevdiklerinizi güvence altına alan önemli bir sigorta türüdür. Bu sigorta, kaza sonucu vefat, sürekli sakatlık veya tedavi masraflarını karşılar.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Ferdi Kaza Sigortasının Kapsamı</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Kaza sonucu vefat teminatı.</li>
+    <li>Kaza sonucu sürekli sakatlık teminatı.</li>
+    <li>Kaza sonucu tedavi masrafları teminatı.</li>
+    <li>İsteğe bağlı olarak gündelik tazminat teminatı.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Ferdi Kaza Sigortası Yaptırmalısınız?</h2>
+  <p class="mb-4">
+    Hayatın getirdiği beklenmedik risklere karşı kendinizi ve ailenizi güvence altına almak için ferdi kaza sigortası büyük önem taşır. Bu sigorta, bir kaza anında oluşabilecek yüksek maliyetli tedavi masraflarını veya gelir kaybını karşılayarak finansal yükünüzü hafifletir.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, ihtiyaçlarınıza en uygun ferdi kaza sigortası seçeneklerini sunarak, geleceğinizi güvenle planlamanıza yardımcı oluyoruz. Detaylı bilgi ve teklif almak için bize ulaşın.
+  </p>
+</ServiceDetailLayout>

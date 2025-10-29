@@ -1,0 +1,31 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Özel Sağlık Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Özel Sağlık Sigortası, beklenmedik sağlık sorunları karşısında size ve sevdiklerinize finansal güvence sağlayan, geniş kapsamlı bir sigorta ürünüdür. Bu sigorta sayesinde, özel hastanelerde dilediğiniz doktor ve sağlık kuruluşundan hizmet alabilir, tedavi masraflarınızı güvence altına alabilirsiniz.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Özel Sağlık Sigortasının Avantajları</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Anlaşmalı özel hastanelerde sıra beklemeden tedavi imkanı.</li>
+    <li>Geniş doktor ve hastane ağı seçeneği.</li>
+    <li>Yüksek limitli veya limitsiz teminat seçenekleri.</li>
+    <li>Ayakta ve yatarak tedavi masraflarının karşılanması.</li>
+    <li>Ek teminatlarla doğum, diş, göz gibi hizmetlerden faydalanma.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Kapsam ve Teminatlar</h2>
+  <p class="mb-4">
+    Özel sağlık sigortası poliçeleri, genellikle yatarak tedavi (ameliyat, yoğun bakım, oda-yemek) ve ayakta tedavi (doktor muayenesi, tahlil, röntgen, ilaç) teminatlarını içerir. İsteğe bağlı olarak doğum, yeni doğan bebek teminatı, diş ve göz teminatları gibi ek hizmetler de poliçeye dahil edilebilir.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, ihtiyaçlarınıza ve bütçenize en uygun özel sağlık sigortası poliçesini bulmanız için size özel danışmanlık hizmeti sunuyoruz. Sağlığınızı ertelemeyin, güvence altına alın.
+  </p>
+</ServiceDetailLayout>

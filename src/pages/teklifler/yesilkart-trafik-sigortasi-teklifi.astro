@@ -1,0 +1,16 @@
+---
+import TeklifLayout from "../../layouts/TeklifLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Yeşilkart Trafik Sigortası");
+---
+
+<TeklifLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Yeşilkart Trafik Sigortası, yurt dışına araçla seyahat edenlerin zorunlu olarak yaptırması gereken bir sigortadır. Bu sigorta, seyahat edilen ülkede meydana gelebilecek kazalarda üçüncü şahıslara verilebilecek zararları karşılar.
+  </p>
+</TeklifLayout>

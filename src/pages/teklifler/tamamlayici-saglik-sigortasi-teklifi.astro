@@ -1,0 +1,30 @@
+---
+import TeklifLayout from "../../layouts/TeklifLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Tamamlayıcı Sağlık Sigortası");
+---
+
+<TeklifLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Tamamlayıcı Sağlık Sigortası (TSS), Sosyal Güvenlik Kurumu (SGK) güvencesi altında olan kişilerin, SGK ile anlaşmalı özel hastanelerde fark ücreti ödemeden veya çok cüzi miktarlar ödeyerek sağlık hizmeti almasını sağlayan bir sigorta türüdür. Bu sigorta, özel sağlık sigortasına göre daha ekonomik bir alternatif sunar.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Tamamlayıcı Sağlık Sigortasının Avantajları</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>SGK anlaşmalı özel hastanelerde fark ücreti ödemeden tedavi imkanı.</li>
+    <li>Daha uygun primlerle özel hastane konforu.</li>
+    <li>Geniş anlaşmalı kurum ağı.</li>
+    <li>Ayakta ve yatarak tedavi teminatları.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Kimler Faydalanabilir?</h2>
+  <p class="mb-4">
+    SGK tarafından aktif sigortalı olan herkes (çalışanlar, emekliler, bakmakla yükümlü oldukları kişiler) Tamamlayıcı Sağlık Sigortasından faydalanabilir. Bu sigorta, özel sağlık hizmetlerine erişimi kolaylaştırırken, bütçenizi de korur.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, size en uygun Tamamlayıcı Sağlık Sigortası seçeneklerini sunarak, sağlığınızı güvence altına almanıza yardımcı oluyoruz. Detaylı bilgi ve teklif almak için bize ulaşın.
+  </p>
+</TeklifLayout>

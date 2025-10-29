@@ -1,0 +1,30 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "DASK (Deprem Sigortası)");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    DASK (Doğal Afet Sigortaları Kurumu) tarafından sunulan Zorunlu Deprem Sigortası, deprem ve deprem sonucu meydana gelen yangın, infilak, tsunami ve yer kayması gibi afetlerin konutunuzda neden olabileceği maddi zararları karşılamak üzere tasarlanmıştır. Türkiye gibi deprem riski yüksek bir ülkede, konut sahipleri için hayati öneme sahip bir güvencedir.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">DASK Neden Zorunludur?</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Deprem sonrası oluşabilecek büyük maddi kayıpları önler.</li>
+    <li>Devlet tarafından yasal olarak zorunlu kılınmıştır.</li>
+    <li>Tapu ve elektrik/su abonelik işlemleri için gereklidir.</li>
+    <li>Deprem bilincini artırır ve toplumsal dayanışmayı destekler.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">DASK Kapsamı</h2>
+  <p class="mb-4">
+    DASK, depremin doğrudan neden olduğu maddi zararlar ile deprem sonucu oluşan yangın, infilak, tsunami ve yer kaymasının neden olduğu hasarları, poliçede belirtilen limitler dahilinde karşılar. Binanın temel, ana duvarlar, tavan ve tabanlar, merdivenler, asansörler, çatılar gibi ana yapı elemanları teminat altındadır.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, konutunuz için en uygun DASK poliçesini hızlı ve güvenilir bir şekilde almanızı sağlıyoruz. Depreme karşı güvencenizi ertelemeyin, hemen bize ulaşın.
+  </p>
+</ServiceDetailLayout>

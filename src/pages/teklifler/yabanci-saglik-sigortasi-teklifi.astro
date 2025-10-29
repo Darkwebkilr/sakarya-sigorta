@@ -1,0 +1,16 @@
+---
+import TeklifLayout from "../../layouts/TeklifLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Yabancı Sağlık Sigortası");
+---
+
+<TeklifLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Yabancı Sağlık Sigortası, Türkiye'de ikamet eden yabancıların yaptırması gereken zorunlu bir sigortadır. Bu sigorta, yabancıların Türkiye'de karşılaşabilecekleri sağlık sorunlarında tedavi masraflarını karşılar.
+  </p>
+</TeklifLayout>

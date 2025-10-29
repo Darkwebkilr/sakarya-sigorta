@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  url: string;
+}
+
+const { title, description, icon, url } = Astro.props;
+---
+
+<div
+  class="card bg-white rounded-lg shadow-md p-8 text-center flex flex-col items-center"
+>
+  <div class="icon-wrapper bg-[#4DA8DA] text-white rounded-full p-4 mb-4">
+    <Icon name={icon} class="w-8 h-8" />
+  </div>
+  <h3 class="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+  <p class="text-gray-600">{description}</p>
+  <a
+    href={url}
+    class="mt-4 bg-[#FFD66B] hover:bg-[#4DA8DA] text-gray-800 font-bold py-2 px-6 rounded-md transition-colors duration-300"
+  >
+    Teklif Al
+  </a>
+</div>

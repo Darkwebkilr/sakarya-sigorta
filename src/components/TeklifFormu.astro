@@ -1,0 +1,104 @@
+---
+const { brandColor = "#4DA8DA", submitLabel = "Teklif Al" } = Astro.props;
+---
+
+<style>
+  .form-card {
+    background: #f9fafb;
+  }
+  .input-base {
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.12s ease,
+      border-color 0.15s ease;
+    border: 2px solid transparent;
+  }
+  .input-base:focus {
+    transform: translateY(-1px);
+    outline: none;
+    border-color: var(--focus-color);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+  }
+</style>
+
+<div class="mt-12 p-8 rounded-lg shadow-xl form-card">
+  <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+    Tamamlayıcı Sağlık Sigortası Teklif Formu
+  </h2>
+
+  <form id="teklifForm" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Ad Soyad</label>
+        <input id="name" name="name" type="text" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="tc_no" class="block text-sm font-medium text-gray-700">TC No</label>
+        <input id="tc_no" name="tc_no" type="text" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Telefon</label>
+        <input id="phone" name="phone" type="tel" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">E-posta</label>
+        <input id="email" name="email" type="email" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="marital_status" class="block text-sm font-medium text-gray-700">Medeni Hal</label>
+        <select id="marital_status" name="marital_status" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`}>
+          <option>Evli</option>
+          <option>Bekar</option>
+        </select>
+      </div>
+      <div>
+        <label for="gender" class="block text-sm font-medium text-gray-700">Cinsiyet</label>
+        <select id="gender" name="gender" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`}>
+          <option>Kadın</option>
+          <option>Erkek</option>
+        </select>
+      </div>
+      <div>
+        <label for="height" class="block text-sm font-medium text-gray-700">Boy</label>
+        <input id="height" name="height" type="text" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="weight" class="block text-sm font-medium text-gray-700">Kilo</label>
+        <input id="weight" name="weight" type="text" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="dob" class="block text-sm font-medium text-gray-700">Doğum Tarihi</label>
+        <input id="dob" name="dob" type="date" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div>
+        <label for="occupation" class="block text-sm font-medium text-gray-700">Meslek</label>
+        <input id="occupation" name="occupation" type="text" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`} />
+      </div>
+      <div class="md:col-span-2">
+        <label for="existing_policy" class="block text-sm font-medium text-gray-700">Mevcut Poliçeniz Var Mı?</label>
+        <select id="existing_policy" name="existing_policy" required class="mt-1 block w-full px-4 py-2 rounded-md shadow-sm input-base" style={`--focus-color: ${brandColor}; --focus-ring: ${brandColor}33;`}>
+          <option>Evet</option>
+          <option>Hayır</option>
+        </select>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full py-3 px-4 rounded-md shadow-lg text-lg font-semibold text-white transition duration-150 ease-in-out transform hover:scale-105"
+      style={`background-color: ${brandColor};`}
+    >
+      {submitLabel}
+    </button>
+  </form>
+</div>
+
+<script>
+  document
+    .getElementById("teklifForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Form başarıyla gönderildi!");
+      window.location.reload();
+    });
+</script>

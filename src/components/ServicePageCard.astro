@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  title: string;
+  description: string;
+  url: string;
+  image: ImageMetadata;
+}
+
+const { title, description, url, image } = Astro.props;
+---
+
+<div class="bg-white text-gray-800 rounded-lg shadow-md p-6 flex flex-col h-full" data-aos="fade-up">
+  <Image src={image} alt={title} width={400} height={200} class="w-full h-48 object-cover rounded-t-lg mb-4" />
+  <h3 class="text-2xl font-bold text-[#4DA8DA] mb-3 text-left">{title}</h3>
+  <p class="text-gray-600 leading-relaxed mb-6 text-left flex-grow">{description}</p>
+  <a href={url} class="mt-auto inline-flex items-center justify-center gap-2 group bg-[#FFD66B] hover:bg-[#3a8db8] text-gray-800 font-bold py-2 px-6 rounded-md transition-colors duration-300 self-start">
+    <span>Teklif Al</span>
+    <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:text-blue-500" />
+  </a>
+</div>

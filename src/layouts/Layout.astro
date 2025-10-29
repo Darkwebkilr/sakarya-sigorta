@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="../../src/styles/global.css" />
+    <title>Sigorta</title>
+  </head>
+  <body class="overflow-x-hidden">
+    <Header />
+    <slot />
+    <Footer />
+
+    <a href="https://wa.me/905318664773" target="_blank" class="fixed bottom-8 right-8 flex items-center gap-3 bg-green-500 text-black py-3 px-5 rounded-full shadow-lg z-50 hover:bg-green-600 transition-colors">
+      <Icon name="mdi:whatsapp" class="w-8 h-8" />
+      <span class="font-semibold">Temsilcimizle Konuşun</span>
+    </a>
+
+    <script>
+      import AOS from "aos";
+      import "aos/dist/aos.css"; // AOS stillerini import et
+
+      AOS.init({
+        once: true, // Animasyon sadece bir kere tetiklensin
+        duration: 700, // Animasyon süresi
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+

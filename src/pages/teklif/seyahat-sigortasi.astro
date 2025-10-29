@@ -1,0 +1,31 @@
+---
+import TeklifLayout from "../../layouts/TeklifLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Seyahat Sigortası");
+---
+
+<TeklifLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Seyahat Sigortası, yurt içi ve yurt dışı seyahatleriniz sırasında karşılaşabileceğiniz beklenmedik durumlar karşısında size finansal güvence ve destek sağlayan bir sigorta türüdür. Bu sigorta ile seyahatinizin keyfini çıkarırken, olası risklere karşı kendinizi güvence altına alabilirsiniz.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Seyahat Sigortasının Kapsamı</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Acil tıbbi tedavi ve hastane masrafları.</li>
+    <li>Seyahat iptali veya gecikmesi.</li>
+    <li>Bagaj kaybı, hasarı veya gecikmesi.</li>
+    <li>Yurt dışı seyahatlerde vize başvuruları için gerekli teminatlar.</li>
+    <li>Hukuki yardım ve danışmanlık hizmetleri.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Seyahat Sigortası Yaptırmalısınız?</h2>
+  <p class="mb-4">
+    Seyahatleriniz sırasında yaşanabilecek sağlık sorunları, kaza, bagaj kaybı gibi durumlar hem maddi hem de manevi olarak sizi zorlayabilir. Seyahat sigortası, bu tür risklere karşı sizi koruyarak, seyahatinizi daha güvenli ve huzurlu hale getirir. Özellikle yurt dışı seyahatlerinde, yüksek sağlık masraflarından korunmak için seyahat sigortası büyük önem taşır.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, seyahat planlarınıza ve ihtiyaçlarınıza en uygun seyahat sigortası seçeneklerini sunuyoruz. Güvenli ve keyifli bir seyahat için bize ulaşın.
+  </p>
+</TeklifLayout>

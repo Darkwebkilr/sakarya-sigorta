@@ -1,0 +1,20 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import ServicePageCard from "../components/ServicePageCard.astro";
+import { services } from "../data/services";
+---
+
+<PageLayout title="Hizmetlerimiz">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
+    {
+      services.map((service) => (
+        <ServicePageCard
+          title={service.name}
+          description={service.description}
+          url={service.url}
+          image={service.image}
+        />
+      ))
+    }
+  </div>
+</PageLayout>

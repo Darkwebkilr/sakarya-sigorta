@@ -1,0 +1,191 @@
+---
+import { Image } from 'astro:assets';
+import sigortacilik from '../assets/services/Sigortacılık.jpg';
+import kasko from '../assets/services/kasko.jpg';
+import saglik from '../assets/services/saglık-sigorta.jpg';
+---
+
+<div class="swiper hero-slider relative h-[600px] w-full text-white">
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
+      <Image src={sigortacilik} alt="Sigortacılık" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
+      <div
+        class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
+      >
+        <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
+          <h1
+            class="title text-3xl lg:text-5xl font-extrabold leading-tight opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            <span>Sigortacılıkta</span>
+            <span class="text-[#FFD66B]">Doğru Adres</span>
+          </h1>
+          <p
+            class="subtitle text-xl mt-6 max-w-lg leading-relaxed opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            Geleceğinizi güvence altına almak için ihtiyacınız olan tüm sigorta
+            çözümleri bir arada. Hızlı, güvenilir ve size özel teklifler için
+            yanınızdayız.
+          </p>
+          <a
+            href="/teklifler"
+            class="cta-button inline-block mt-8 px-8 py-4 bg-[#FFD66B] text-gray-800 font-bold rounded-md transition-transform hover:scale-105 opacity-0 translate-y-5 duration-700 ease-out"
+          >
+            Hemen Teklif Al
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <Image src={kasko} alt="Kasko" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
+      <div
+        class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
+      >
+        <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
+          <h1
+            class="title text-3xl lg:text-5xl font-extrabold leading-tight opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            <span>Kasko & Trafik</span>
+            <span class="text-[#FFD66B]">Güvenceniz Biziz</span>
+          </h1>
+          <p
+            class="subtitle text-xl mt-6 max-w-lg leading-relaxed opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            Aracınız için en geniş kapsamlı kasko ve zorunlu trafik sigortası
+            tekliflerini saniyeler içinde alın.
+          </p>
+          <a
+            href="/hizmetlerimiz"
+            class="cta-button inline-block mt-8 px-8 py-4 bg-[#FFD66B] text-gray-800 font-bold rounded-md transition-transform hover:scale-105 opacity-0 translate-y-5 duration-700 ease-out"
+          >
+            Hizmetleri İncele
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
+      <Image src={saglik} alt="Sağlık" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
+      <div
+        class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
+      >
+        <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
+          <h1
+            class="title text-3xl lg:text-5xl font-extrabold leading-tight opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            <span>Sağlığınız</span>
+            <span class="text-[#FFD66B]">Önemlidir</span>
+          </h1>
+          <p
+            class="subtitle text-xl mt-6 max-w-lg leading-relaxed opacity-0 translate-y-5 transition-all duration-700 ease-out"
+          >
+            Özel sağlık sigortası ve tamamlayıcı sağlık sigortası ile
+            sağlığınızı en iyi koşullarda koruma altına alın.
+          </p>
+          <a
+            href="/iletisim"
+            class="cta-button inline-block mt-8 px-8 py-4 bg-[#FFD66B] text-gray-800 font-bold rounded-md transition-transform hover:scale-105 opacity-0 translate-y-5 duration-700 ease-out"
+          >
+            Bize Ulaşın
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<style>
+  /* Swiper'ın navigasyon ve pagination elemanlarının renklerini, temanın sarı rengiyle eşleşecek şekilde eziyoruz. */
+  .hero-slider {
+    --swiper-navigation-color: #ffd66b;
+    --swiper-pagination-color: #ffd66b;
+  }
+
+  /* 768px'den küçük ekranlarda navigasyon oklarını gizle */
+  @media (max-width: 767px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/effect-fade";
+
+  function animateSlide(slide) {
+    const title = slide.querySelector(".title");
+    const subtitle = slide.querySelector(".subtitle");
+    const cta = slide.querySelector(".cta-button");
+
+    if (title) {
+      title.classList.remove("opacity-0", "translate-y-5");
+      title.style.transitionDelay = "300ms";
+    }
+    if (subtitle) {
+      subtitle.classList.remove("opacity-0", "translate-y-5");
+      subtitle.style.transitionDelay = "600ms";
+    }
+    if (cta) {
+      cta.classList.remove("opacity-0", "translate-y-5");
+      cta.style.transitionDelay = "900ms";
+    }
+  }
+
+  function resetSlide(slide) {
+    const title = slide.querySelector(".title");
+    const subtitle = slide.querySelector(".subtitle");
+    const cta = slide.querySelector(".cta-button");
+
+    if (title) title.classList.add("opacity-0", "translate-y-5");
+    if (subtitle) subtitle.classList.add("opacity-0", "translate-y-5");
+    if (cta) cta.classList.add("opacity-0", "translate-y-5");
+  }
+
+  const swiper = new Swiper(".hero-slider", {
+    modules: [Navigation, Pagination, Autoplay, EffectFade],
+    loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      init: function () {
+        // Reset all slides to their initial hidden state first
+        this.slides.forEach((slide) => resetSlide(slide));
+        // Then, animate the content of the first visible slide
+        animateSlide(this.slides[this.activeIndex]);
+      },
+      slideChangeTransitionStart: function () {
+        this.slides.forEach((slide) => resetSlide(slide));
+      },
+      slideChangeTransitionEnd: function () {
+        animateSlide(this.slides[this.activeIndex]);
+      },
+    },
+  });
+</script>

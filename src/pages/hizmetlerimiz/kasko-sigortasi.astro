@@ -1,0 +1,30 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Kasko Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Kasko sigortası, aracınızın kaza, yanma, çalınma gibi risklere karşı güvence altına alınmasını sağlayan önemli bir sigorta türüdür. Sakarya Kaya Sigorta olarak, aracınızın değerini koruyan ve sizi beklenmedik durumlara karşı güvence altına alan kapsamlı kasko sigortası seçenekleri sunuyoruz.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Kasko Sigortası Yaptırmalısınız?</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Aracınızın hasar görmesi durumunda onarım masraflarını karşılar.</li>
+    <li>Çalınma riskine karşı aracınızı güvence altına alır.</li>
+    <li>Doğal afetler (sel, deprem vb.) sonucu oluşan zararları karşılar.</li>
+    <li>Üçüncü şahıslara verilen zararları da belirli limitler dahilinde karşılayabilir.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Kasko Sigortası Kapsamı</h2>
+  <p class="mb-4">
+    Poliçenizin kapsamına göre değişmekle birlikte, kasko sigortası genellikle çarpma, çarpışma, yanma, çalınma, doğal afetler ve terör olayları gibi durumları kapsar. İhtiyaçlarınıza en uygun kasko sigortası paketini belirlemek için uzman ekibimizle iletişime geçebilirsiniz.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, size özel avantajlı kasko sigortası teklifleri sunarak, aracınızı güvenle kullanmanızı sağlıyoruz.
+  </p>
+</ServiceDetailLayout>
