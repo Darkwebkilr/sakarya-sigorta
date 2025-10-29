@@ -1,35 +1,55 @@
 ---
 import { Icon } from "astro-icon/components";
 import { services } from "../data/services";
-import Logo from '../assets/Logo.png';
+import Logo from "../assets/Logo.png";
+import Image from "astro/components/Image.astro";
 
 const healthSubLinks = [
-  services.find(s => s.name === "Özel Sağlık Sigortası"),
-  services.find(s => s.name === "Tamamlayıcı Sağlık Sigortası"),
-  services.find(s => s.name === "Seyahat Sigortası"),
+  services.find((s) => s.name === "Özel Sağlık Sigortası"),
+  services.find((s) => s.name === "Tamamlayıcı Sağlık Sigortası"),
+  services.find((s) => s.name === "Seyahat Sigortası"),
 ].filter(Boolean); // Filter out any undefined if a service is not found
 
 const serviceDropdownLinks = [
-  services.find(s => s.name === "Kasko Sigortası"),
-  services.find(s => s.name === "Zorunlu Trafik Sigortası"),
+  services.find((s) => s.name === "Kasko Sigortası"),
+  services.find((s) => s.name === "Zorunlu Trafik Sigortası"),
   { name: "Sağlık Sigortaları", url: "#", subLinks: healthSubLinks },
-  services.find(s => s.name === "Konut Sigortası"),
-  services.find(s => s.name === "DASK (Deprem Sigortası)"),
-  services.find(s => s.name === "Ferdi Kaza Sigortası"),
-  services.find(s => s.name === "İş Yeri Sigortası"),
+  services.find((s) => s.name === "Konut Sigortası"),
+  services.find((s) => s.name === "DASK (Deprem Sigortası)"),
+  services.find((s) => s.name === "Ferdi Kaza Sigortası"),
+  services.find((s) => s.name === "İş Yeri Sigortası"),
 ].filter(Boolean);
 
 const offerDropdownLinks = [
   { name: "Kasko Teklifi", url: "/teklifler/kasko-teklifi" },
-  { name: "Trafik Sigortası Teklifi", url: "/teklifler/trafik-sigortasi-teklifi" },
-  { name: "Yeşilkart Trafik Sigortası Teklifi", url: "/teklifler/yesilkart-trafik-sigortasi-teklifi" },
-  { name: "Sağlık Sigortası Teklifi", url: "/teklifler/saglik-sigortasi-teklifi" },
-  { name: "Tamamlayıcı Sağlık Sigortası Teklifi", url: "/teklifler/tamamlayici-saglik-sigortasi-teklifi" },
-  { name: "Yabancı Sağlık Sigortası Teklifi", url: "/teklifler/yabanci-saglik-sigortasi-teklifi" },
+  {
+    name: "Trafik Sigortası Teklifi",
+    url: "/teklifler/trafik-sigortasi-teklifi",
+  },
+  {
+    name: "Yeşilkart Trafik Sigortası Teklifi",
+    url: "/teklifler/yesilkart-trafik-sigortasi-teklifi",
+  },
+  {
+    name: "Sağlık Sigortası Teklifi",
+    url: "/teklifler/saglik-sigortasi-teklifi",
+  },
+  {
+    name: "Tamamlayıcı Sağlık Sigortası Teklifi",
+    url: "/teklifler/tamamlayici-saglik-sigortasi-teklifi",
+  },
+  {
+    name: "Yabancı Sağlık Sigortası Teklifi",
+    url: "/teklifler/yabanci-saglik-sigortasi-teklifi",
+  },
   { name: "DASK/Yangın Teklifi", url: "/teklifler/dask-yangin-teklifi" },
-  { name: "İşyeri Sigortası Teklifi", url: "/teklifler/isyeri-sigortasi-teklifi" },
+  {
+    name: "İşyeri Sigortası Teklifi",
+    url: "/teklifler/isyeri-sigortasi-teklifi",
+  },
 ];
 ---
+
 <header class="font-sans">
   <!-- Top Bar -->
   <div class="bg-[#4DA8DA] text-white">
@@ -73,11 +93,7 @@ const offerDropdownLinks = [
     >
       <!-- Logo -->
       <a href="/" class="flex items-center font-bold text-gray-800">
-        <img
-          src={Logo}
-          alt="Sigorta Logo"
-          class="w-28 lg:h-32 lg:w-36"
-        />
+        <Image src={Logo} alt="Sigorta Logo" class="w-28 lg:h-32 lg:w-36" />
       </a>
 
       <!-- Mobile Menu Button -->
@@ -151,7 +167,8 @@ const offerDropdownLinks = [
                         </div>
                       )}
                     </li>
-                  ))}
+                  ))
+                }
               </ul>
             </div>
           </li>
