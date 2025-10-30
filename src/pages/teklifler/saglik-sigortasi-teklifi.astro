@@ -3,12 +3,28 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Özel Sağlık Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "marital_status", name: "marital_status", label: "Medeni Hal", type: "select", options: ["Evli", "Bekar"], required: true },
+  { id: "gender", name: "gender", label: "Cinsiyet", type: "select", options: ["Kadın", "Erkek"], required: true },
+  { id: "height", name: "height", label: "Boy", type: "text", required: true },
+  { id: "weight", name: "weight", label: "Kilo", type: "text", required: true },
+  { id: "dob", name: "dob", label: "Doğum Tarihi", type: "date", required: true },
+  { id: "occupation", name: "occupation", label: "Meslek", type: "text", required: true },
+  { id: "existing_policy", name: "existing_policy", label: "Mevcut Poliçeniz Var Mı?", type: "select", options: ["Var", "Yok"], required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Özel Sağlık Sigortası, beklenmedik sağlık sorunları karşısında size ve sevdiklerinize finansal güvence sağlayan, geniş kapsamlı bir sigorta ürünüdür. Bu sigorta sayesinde, özel hastanelerde dilediğiniz doktor ve sağlık kuruluşundan hizmet alabilir, tedavi masraflarınızı güvence altına alabilirsiniz.

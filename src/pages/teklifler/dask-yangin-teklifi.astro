@@ -3,12 +3,27 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "DASK (Deprem Sigortası)");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tax_number", name: "tax_number", label: "Vergi Numarası", type: "text", required: true },
+  { id: "city", name: "city", label: "İl", type: "text", required: true },
+  { id: "district", name: "district", label: "İlçe", type: "text", required: true },
+  { id: "building_structure", name: "building_structure", label: "Bina Yapısı", type: "select", options: ["Çelik Beton", "Yığma Kagir Yapı", "Diğer"], required: true },
+  { id: "building_age", name: "building_age", label: "Bina Yaşı", type: "number", required: true },
+  { id: "square_meter", name: "square_meter", label: "Daire Yüzölçümü", type: "number", required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     DASK (Doğal Afet Sigortaları Kurumu) tarafından sunulan Zorunlu Deprem Sigortası, deprem ve deprem sonucu meydana gelen yangın, infilak, tsunami ve yer kayması gibi afetlerin konutunuzda neden olabileceği maddi zararları karşılamak üzere tasarlanmıştır. Türkiye gibi deprem riski yüksek bir ülkede, konut sahipleri için hayati öneme sahip bir güvencedir.

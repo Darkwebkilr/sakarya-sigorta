@@ -1,0 +1,29 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Yeşilkart Trafik Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Yeşilkart Trafik Sigortası, yurt dışına araçla seyahat edenlerin zorunlu olarak yaptırması gereken bir sigortadır. Bu sigorta, seyahat edilen ülkede meydana gelebilecek kazalarda üçüncü şahıslara verilebilecek zararları karşılar.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Yeşilkart Trafik Sigortası Kapsamı</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Yurt dışında meydana gelen kazalarda üçüncü şahıslara verilen maddi ve bedeni zararları karşılar.</li>
+    <li>Uluslararası geçerliliğe sahiptir.</li>
+    <li>Seyahat edilen ülkenin trafik sigortası limitleri dahilinde teminat sağlar.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Yeşilkart Trafik Sigortası Yaptırmalısınız?</h2>
+  <p class="mb-4">
+    Yurt dışı seyahatlerinizde aracınızla kaza yapmanız durumunda, Yeşilkart Trafik Sigortası sizi ve karşı tarafı güvence altına alır. Bu sigorta, uluslararası yasal bir zorunluluktur ve seyahatlerinizin sorunsuz geçmesini sağlar.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, yurt dışı seyahatleriniz için en uygun Yeşilkart Trafik Sigortası tekliflerini sunuyoruz. Güvenli yolculuklar için bize ulaşın.
+  </p>
+</ServiceDetailLayout>

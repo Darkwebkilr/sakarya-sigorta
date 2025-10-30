@@ -3,12 +3,29 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Zorunlu Trafik Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "owner_type", name: "owner_type", label: "Ruhsat Sahibi", type: "select", options: ["Şahıs", "Firma"], required: true },
+  { id: "document_serial", name: "document_serial", label: "Belge Seri No (2 Harf 6 Rakam)", type: "text", required: true },
+  { id: "occupation", name: "occupation", label: "Mesleğiniz", type: "text", required: true },
+  { id: "plate_status", name: "plate_status", label: "Plaka Durumu", type: "select", options: ["Plaka Var", "Yeni Araç Plaka Yok"], required: true },
+  { id: "plate", name: "plate", label: "Araç Plakası", type: "text", required: true },
+  { id: "brand", name: "brand", label: "Araç Markası", type: "text", required: true },
+  { id: "model", name: "model", label: "Araç Modeli", type: "text", required: true },
+  { id: "year", name: "year", label: "Model Yılı", type: "number", required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Zorunlu Trafik Sigortası, trafikte meydana gelebilecek kazalarda üçüncü şahıslara verilebilecek maddi ve bedeni zararları karşılamak üzere devlet tarafından zorunlu kılınan bir sigorta türüdür. Bu sigorta, sizin kusurlu olduğunuz bir kazada karşı tarafın hasarlarını teminat altına alır.

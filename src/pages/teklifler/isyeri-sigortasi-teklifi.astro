@@ -1,14 +1,23 @@
---- 
+---
 import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "İş Yeri Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     İş Yeri Sigortası, işletmenizi ve iş yerinizdeki tüm varlıklarınızı (bina, demirbaşlar, makineler, emtia vb.) yangından hırsızlığa, su baskınından doğal afetlere kadar birçok riske karşı güvence altına alan kapsamlı bir sigorta çözümüdür. İşletmenizin sürekliliği ve finansal güvenliği için iş yeri sigortası büyük önem taşır.

@@ -1,15 +1,17 @@
 ---
 import PageLayout from "./PageLayout.astro";
 import ServiceSidebar from "../components/ServiceSidebar.astro";
-import TeklifFormu from "../components/TeklifFormu.astro";
+import TeklifFormu, { type FieldConfig } from "../components/TeklifFormu.astro";
 
 export interface Props {
   title: string;
   description: string;
   image: string;
+  formTitle: string;
+  formFields?: FieldConfig[];
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, formTitle, formFields = [] } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -24,7 +26,7 @@ const currentPath = Astro.url.pathname;
       </p>
       <slot />
       <div class="mt-8">
-        <TeklifFormu />
+        <TeklifFormu formTitle={title} fields={formFields} />
       </div>
     </article>
   </div>

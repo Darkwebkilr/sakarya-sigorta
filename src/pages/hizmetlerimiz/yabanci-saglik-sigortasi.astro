@@ -1,0 +1,30 @@
+---
+import ServiceDetailLayout from "../../layouts/ServiceDetailLayout.astro";
+import { services } from "../../data/services";
+
+const service = services.find(s => s.name === "Yabancı Sağlık Sigortası");
+---
+
+<ServiceDetailLayout
+  title={service.name}
+  description={service.description}
+  image={service.image}
+>
+  <p class="mb-4">
+    Yabancı Sağlık Sigortası, Türkiye'de ikamet eden yabancıların yaptırması gereken zorunlu bir sigortadır. Bu sigorta, yabancıların Türkiye'de karşılaşabilecekleri sağlık sorunlarında tedavi masraflarını karşılar.
+  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Yabancı Sağlık Sigortası Kapsamı</h2>
+  <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+    <li>Ayakta ve yatarak tedavi masrafları.</li>
+    <li>İlaç giderleri.</li>
+    <li>Acil durum hizmetleri.</li>
+    <li>Poliçe limitleri dahilinde geniş teminatlar.</li>
+  </ul>
+  <h2 class="text-2xl font-bold text-gray-800 mb-3">Neden Yabancı Sağlık Sigortası Yaptırmalısınız?</h2>
+  <p class="mb-4">
+    Türkiye'de ikamet izni almak isteyen yabancılar için yasal bir zorunluluk olan Yabancı Sağlık Sigortası, aynı zamanda beklenmedik sağlık sorunlarına karşı sizi finansal olarak korur. Sağlık hizmetlerine kolay erişim sağlar ve tedavi masraflarınızı güvence altına alır.
+  </p>
+  <p>
+    Sakarya Kaya Sigorta olarak, Türkiye'de yaşayan yabancılar için en uygun ve kapsamlı sağlık sigortası çözümlerini sunuyoruz. İkamet izni başvurularınızda sorun yaşamamak ve sağlığınızı güvence altına almak için bize ulaşın.
+  </p>
+</ServiceDetailLayout>

@@ -3,12 +3,26 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Yeşilkart Trafik Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "plate_or_document_serial", name: "plate_or_document_serial", label: "Plaka veya Belge Seri No", type: "text", required: true },
+  { id: "license_document_no", name: "license_document_no", label: "Ruhsat Belge No", type: "text", required: true },
+  { id: "start_date", name: "start_date", label: "Başlangıç Tarihi", type: "date", required: true },
+  { id: "end_date", name: "end_date", label: "Bitiş Tarihi", type: "date", required: true },
+  { id: "country", name: "country", label: "Seyahat Edilecek Ülke", type: "text", required: true },
+  { id: "kvkk_acceptance", name: "kvkk_acceptance", label: "KVKK bilgilendirme metnini kabul ediyorum", type: "checkbox", required: true, colSpan: 2 },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Yeşilkart Trafik Sigortası, yurt dışına araçla seyahat edenlerin zorunlu olarak yaptırması gereken bir sigortadır. Bu sigorta, seyahat edilen ülkede meydana gelebilecek kazalarda üçüncü şahıslara verilebilecek zararları karşılar.
