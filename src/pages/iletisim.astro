@@ -2,22 +2,44 @@
 import TeklifFormu from "../components/TeklifFormu.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import { Icon } from "astro-icon/components";
+
+// DEĞİŞİKLİK: İletişim formu için alanları burada tanımladık
+const iletisimFormuFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  {
+    id: "email",
+    name: "email",
+    label: "E-posta",
+    type: "email",
+    required: true,
+    colSpan: 2,
+  },
+  {
+    id: "message",
+    name: "message",
+    label: "Mesajınız",
+    type: "textarea",
+    required: true,
+    colSpan: 2,
+  },
+];
 ---
 
 <PageLayout title="İletişim">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-    <!-- Address Card -->
     <div
       class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center space-y-4 border-b-4 border-[#FFD66B] h-full"
     >
       <Icon name="mdi:map-marker" class="w-12 h-12 text-[#4DA8DA]" />
       <div>
         <h3 class="text-xl font-semibold text-gray-800 mb-2">Adres</h3>
-        <p class="text-gray-600">Köprübaşı mah. Özlem Sok. No 1/205 Serivan Sakarya</p>
+        <p class="text-gray-600">
+          Köprübaşı mah. Özlem Sok. No 1/205 Serivan Sakarya
+        </p>
       </div>
     </div>
 
-    <!-- Phone Card -->
     <div
       class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center space-y-4 border-b-4 border-[#FFD66B] h-full"
     >
@@ -28,7 +50,6 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
 
-    <!-- Email Card -->
     <div
       class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center space-y-4 border-b-4 border-[#FFD66B] h-full"
     >
@@ -40,9 +61,9 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
 
-  <!-- Google Maps Embed -->
   <div class="mt-12">
     <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Konumumuz</h2>
+
     <div class="aspect-w-16 aspect-h-9">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.42710234036!2d49.8670923153908!3d40.3776739793696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030707d7a0d0d0d%3A0x123456789abcdef!2sBaku%2C%20Azerbaijan!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
@@ -55,6 +76,9 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
 
-  <!-- Contact Form -->
-  <TeklifFormu />
+  <TeklifFormu
+    formTitle="İletişime Geç"
+    fields={iletisimFormuFields}
+    submitLabel="Mesajı Gönder"
+  />
 </PageLayout>
