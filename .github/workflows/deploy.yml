@@ -1,0 +1,42 @@
+name: Deploy Astro to Plesk
+
+# Sadece 'main' branch'ine push yapıldığında çalışsın
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # GitHub'ın sanal sunucusunda çalış
+
+    steps:
+      # 1. Kodu GitHub'dan sanal sunucuya çek
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Node.js (veya Bun) kur
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Kullandığın Node sürümü
+          cache: 'npm' # Hızlandırma için
+
+      # 3. Bağımlılıkları kur
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Projeyi build et (dist klasörü oluştur)
+      - name: Build project
+        run: npm run build
+
+      # 5. Build edilen dosyaları Plesk sunucusuna FTP ile gönder
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/ # Build klasörünün yolu
+          server-dir: httpdocs/ # Plesk'teki hedef klasör
+          clean-up: true # Sunucudaki eski dosyaları sil (tavsiye edilir)
