@@ -72,7 +72,7 @@ const offerDropdownLinks = [
           <span>info@sakaryakayasigorta.com</span>
         </a>
       </div>
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden lg:flex items-center gap-4">
         <a href="#" aria-label="Facebook" class="hover:text-gray-300">
           <Icon name="mdi:facebook" class="w-5 h-5" />
         </a>
@@ -93,11 +93,15 @@ const offerDropdownLinks = [
     >
       <!-- Logo -->
       <a href="/" class="flex items-center font-bold text-gray-800">
-        <Image src={Logo} alt="Sigorta Logo" class="w-28 lg:h-32 lg:w-36" />
+        <Image
+          src={Logo}
+          alt="Sigorta Logo"
+          class="w-36 lg:h-32 lg:w-48 min-w-36"
+        />
       </a>
 
       <!-- Mobile Menu Button -->
-      <div class="md:hidden">
+      <div class="lg:hidden">
         <button
           id="mobile-menu-button"
           class="text-gray-800 focus:outline-none"
@@ -107,9 +111,9 @@ const offerDropdownLinks = [
       </div>
 
       <!-- Navigation -->
-      <nav class="hidden md:flex">
+      <nav class="hidden lg:flex">
         <ul
-          class="hidden md:flex items-center text-lg gap-10 text-gray-600 font-medium"
+          class="hidden lg:flex items-center text-lg gap-10 text-gray-600 font-medium"
         >
           <li>
             <a href="/" class="hover:text-blue-700 transition-colors"
@@ -171,6 +175,11 @@ const offerDropdownLinks = [
                 }
               </ul>
             </div>
+          </li>
+          <li>
+            <a href="/kampanyalar" class="hover:text-blue-700 transition-colors"
+              >Kampanyalar</a
+            >
           </li>
           <li class="relative group">
             <a
@@ -255,6 +264,13 @@ const offerDropdownLinks = [
               href="/hizmetlerimiz"
               class="block py-2 px-4 text-gray-800 hover:bg-gray-100"
               >Hizmetlerimiz</a
+            >
+          </li>
+          <li>
+            <a
+              href="/kampanyalar"
+              class="block py-2 px-4 text-gray-800 hover:bg-gray-100"
+              >Kampanyalar</a
             >
           </li>
           <li>

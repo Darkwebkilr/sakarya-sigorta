@@ -1,29 +1,22 @@
 ---
-import { Image } from 'astro:assets';
-import sigortacilik from '../assets/services/Sigortacılık.jpg';
-import kasko from '../assets/services/kasko.jpg';
-import saglik from '../assets/services/saglık-sigorta.jpg';
+import Image from "astro/components/Image.astro";
 ---
 
 <div class="swiper hero-slider relative h-[600px] w-full text-white">
   <div class="swiper-wrapper">
     <!-- Slide 1 -->
     <div class="swiper-slide">
-      <Image src={sigortacilik} alt="Sigortacılık" class="absolute inset-0 w-full h-full object-cover" />
+      <img src={'/img/services/Sigortacılık.webp'} alt="Sigortacılık" class="absolute inset-0 w-full h-full object-cover" width="1920" height="1080" />
       <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
       <div
         class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
       >
         <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
-          <h1
-            class="title text-3xl lg:text-5xl font-extrabold leading-tight"
-          >
+          <h1 class="title text-3xl lg:text-5xl font-extrabold leading-tight">
             <span>Sigortacılıkta</span>
             <span class="text-[#FFD66B]">Doğru Adres</span>
           </h1>
-          <p
-            class="subtitle text-xl mt-6 max-w-lg leading-relaxed"
-          >
+          <p class="subtitle text-xl mt-6 max-w-lg leading-relaxed">
             Geleceğinizi güvence altına almak için ihtiyacınız olan tüm sigorta
             çözümleri bir arada. Hızlı, güvenilir ve size özel teklifler için
             yanınızdayız.
@@ -39,21 +32,17 @@ import saglik from '../assets/services/saglık-sigorta.jpg';
     </div>
     <!-- Slide 2 -->
     <div class="swiper-slide">
-      <Image src={kasko} alt="Kasko" class="absolute inset-0 w-full h-full object-cover" />
+      <img src={'/img/services/kasko.webp'} alt="Kasko" class="absolute inset-0 w-full h-full object-cover" width="1920" height="1080" />
       <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
       <div
         class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
       >
         <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
-          <h1
-            class="title text-3xl lg:text-5xl font-extrabold leading-tight"
-          >
+          <h1 class="title text-3xl lg:text-5xl font-extrabold leading-tight">
             <span>Kasko & Trafik</span>
             <span class="text-[#FFD66B]">Güvenceniz Biziz</span>
           </h1>
-          <p
-            class="subtitle text-xl mt-6 max-w-lg leading-relaxed"
-          >
+          <p class="subtitle text-xl mt-6 max-w-lg leading-relaxed">
             Aracınız için en geniş kapsamlı kasko ve zorunlu trafik sigortası
             tekliflerini saniyeler içinde alın.
           </p>
@@ -68,21 +57,17 @@ import saglik from '../assets/services/saglık-sigorta.jpg';
     </div>
     <!-- Slide 3 -->
     <div class="swiper-slide">
-      <Image src={saglik} alt="Sağlık" class="absolute inset-0 w-full h-full object-cover" />
+      <img src={'/img/services/saglık-sigorta.webp'} alt="Sağlık" class="absolute inset-0 w-full h-full object-cover" width="1920" height="1080" />
       <div class="absolute inset-0 w-full h-full bg-black opacity-50"></div>
       <div
         class="relative max-w-screen-xl mx-auto px-4 h-full flex items-center"
       >
         <div class="content-container w-full lg:w-1/2 p-10 lg:p-5">
-          <h1
-            class="title text-3xl lg:text-5xl font-extrabold leading-tight"
-          >
+          <h1 class="title text-3xl lg:text-5xl font-extrabold leading-tight">
             <span>Sağlığınız</span>
             <span class="text-[#FFD66B]">Önemlidir</span>
           </h1>
-          <p
-            class="subtitle text-xl mt-6 max-w-lg leading-relaxed"
-          >
+          <p class="subtitle text-xl mt-6 max-w-lg leading-relaxed">
             Özel sağlık sigortası ve tamamlayıcı sağlık sigortası ile
             sağlığınızı en iyi koşullarda koruma altına alın.
           </p>
@@ -128,9 +113,10 @@ import saglik from '../assets/services/saglık-sigorta.jpg';
   const swiper = new Swiper(".hero-slider", {
     modules: [Navigation, Pagination, Autoplay, EffectFade],
     loop: true,
-    effect: 'fade',
+    effect: "fade",
+    speed: 300,
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     autoplay: {
       delay: 5000,
@@ -146,3 +132,4 @@ import saglik from '../assets/services/saglık-sigorta.jpg';
     },
   });
 </script>
+
