@@ -3,12 +3,26 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Seyahat Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "dob", name: "dob", label: "Doğum Tarihi", type: "date", required: true },
+  { id: "gender", name: "gender", label: "Cinsiyet", type: "select", options: ["Kadın", "Erkek"], required: true },
+  { id: "destination", name: "destination", label: "Seyahat Edilecek Ülke/Şehir", type: "text", required: true },
+  { id: "start_date", name: "start_date", label: "Başlangıç Tarihi", type: "date", required: true },
+  { id: "end_date", name: "end_date", label: "Bitiş Tarihi", type: "date", required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Seyahat Sigortası, yurt içi ve yurt dışı seyahatleriniz sırasında karşılaşabileceğiniz beklenmedik durumlar karşısında size finansal güvence ve destek sağlayan bir sigorta türüdür. Bu sigorta ile seyahatinizin keyfini çıkarırken, olası risklere karşı kendinizi güvence altına alabilirsiniz.

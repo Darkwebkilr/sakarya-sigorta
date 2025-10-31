@@ -3,12 +3,24 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Ferdi Kaza Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "dob", name: "dob", label: "Doğum Tarihi", type: "date", required: true },
+  { id: "occupation", name: "occupation", label: "Meslek", type: "text", required: true },
+  { id: "accident_type", name: "accident_type", label: "Kaza Türü", type: "text", required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Ferdi Kaza Sigortası, günlük hayatınızda veya işinizde karşılaşabileceğiniz ani ve beklenmedik kazalar sonucunda oluşabilecek maddi kayıplara karşı sizi ve sevdiklerinizi güvence altına alan önemli bir sigorta türüdür. Bu sigorta, kaza sonucu vefat, sürekli sakatlık veya tedavi masraflarını karşılar.

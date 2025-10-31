@@ -3,12 +3,25 @@ import TeklifLayout from "../../layouts/TeklifLayout.astro";
 import { services } from "../../data/services";
 
 const service = services.find(s => s.name === "Konut Sigortası");
+
+const formFields = [
+  { id: "name", name: "name", label: "Ad Soyad", type: "text", required: true },
+  { id: "phone", name: "phone", label: "Telefon", type: "tel", required: true },
+  { id: "email", name: "email", label: "E-posta", type: "email", required: true },
+  { id: "tc_no", name: "tc_no", label: "TC No", type: "text", required: true },
+  { id: "address", name: "address", label: "Konut Adresi", type: "text", required: true, colSpan: 2 },
+  { id: "square_meter", name: "square_meter", label: "Metrekare", type: "number", required: true },
+  { id: "building_year", name: "building_year", label: "Bina Yapım Yılı", type: "number", required: true },
+  { id: "building_type", name: "building_type", label: "Bina Tipi", type: "select", options: ["Apartman Dairesi", "Müstakil Ev", "Site İçinde"], required: true },
+];
 ---
 
 <TeklifLayout
   title={service.name}
   description={service.description}
   image={service.image}
+  formTitle={`${service.name} Teklif Formu`}
+  formFields={formFields}
 >
   <p class="mb-4">
     Konut Sigortası, evinizi ve içinde bulunan eşyalarınızı yangından hırsızlığa, su baskınından depreme kadar birçok riske karşı güvence altına alan kapsamlı bir sigorta çözümüdür. Eviniz, hayatınızın en değerli varlıklarından biridir ve onu beklenmedik durumlara karşı korumak büyük önem taşır.

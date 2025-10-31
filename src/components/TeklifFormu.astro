@@ -7,7 +7,6 @@ export interface FieldConfig {
   required?: boolean;
   options?: string[];
   colSpan?: number;
-  // 1 or 2 for grid-cols-2
 }
 
 export interface Props {
@@ -49,24 +48,12 @@ const {
     {formTitle}
   </h2>
 
-  <form
-    id="teklifForm"
-    class="space-y-6"
-    action="https://formsubmit.co/info@sakaryakayasigorta.com"
-    method="POST"
-  >
+  <form id="teklifForm" class="space-y-6">
     <input
       type="hidden"
       name="_subject"
-      value={`Web Siteden Yeni Talep: ${formTitle}`}
+      value={`Yeni Teklif Formu: ${formTitle}`}
     />
-
-    <input
-      type="hidden"
-      name="_next"
-      value="https://www.sakaryakayasigorta.com/tesekkurler"
-    />
-
     <input type="text" name="_honey" style="display:none" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -117,6 +104,7 @@ const {
     </div>
 
     <button
+      id="submitButton"
       type="submit"
       class="w-full py-3 px-4 rounded-md shadow-lg text-lg font-semibold text-white transition duration-150 ease-in-out transform hover:scale-105"
       style={`background-color: ${brandColor};`}
@@ -126,3 +114,38 @@ const {
   </form>
 </div>
 
+<script>
+  const form = document.getElementById("teklifForm");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.textContent;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Gönderiliyor...";
+
+    fetch("https://formsubmit.co/ajax/info@sakaryakayasigorta.com", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Form başarıyla gönderildi!");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Form gönderilirken hata oluştu:", error);
+        alert("Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.");
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      });
+  });
+</script>

@@ -1,26 +1,8 @@
 ---
 import BlogPostCard from './BlogPostCard.astro';
+import { blogPosts } from '../data/blog';
 
-const posts = [
-  {
-    title: 'Kasko Değerini Etkileyen Faktörler',
-    excerpt: 'Aracınızın kasko değerini neler etkiler? Değeri artırmak için neler yapabilirsiniz? Tüm detaylar bu yazıda.',
-    imageUrl: 'https://picsum.photos/seed/sigorta1/400/300',
-    url: '/blog/kasko-degeri-etkenleri'
-  },
-  {
-    title: 'Tamamlayıcı Sağlık Sigortası Nedir?',
-    excerpt: 'Özel sağlık sigortasına uygun fiyatlı bir alternatif olan tamamlayıcı sağlık sigortasının avantajlarını keşfedin.',
-    imageUrl: 'https://picsum.photos/seed/sigorta2/400/300',
-    url: '/blog/tamamlayici-saglik-sigortasi'
-  },
-  {
-    title: 'Evden Çalışırken Ev Güvenliği İpuçları',
-    excerpt: 'Evden çalışma düzeninde evinizi ve değerli eşyalarınızı hırsızlık gibi risklere karşı nasıl korursunuz?',
-    imageUrl: 'https://picsum.photos/seed/sigorta3/400/300',
-    url: '/blog/ev-guvenligi-ipuclari'
-  }
-];
+const posts = blogPosts;
 ---
 
 <section class="py-20 bg-white">
@@ -36,7 +18,7 @@ const posts = [
             title={post.title} 
             excerpt={post.excerpt} 
             imageUrl={post.imageUrl}
-            url={post.url}
+            url={`/blog/${post.slug}`}
           />
         </div>
       ))}

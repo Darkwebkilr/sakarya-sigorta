@@ -1,12 +1,14 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Layout from "./Layout.astro";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const currentPath = Astro.url.pathname;
 const pathSegments = currentPath.split("/").filter((segment) => segment !== "");
 const currentPageName =
@@ -15,18 +17,8 @@ const currentPageName =
     : "Anasayfa";
 ---
 
-<!doctype html>
-<html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="../../src/styles/global.css" />
-    <title>{title} | Sigorta</title>
-  </head>
+<Layout title={title} description={description}>
   <body>
-    <Header />
-
     <main class="py-12">
       <div class="container mx-auto px-4">
         <h1 class="text-7xl font-bold text-gray-800 mb-4 text-center">
@@ -42,8 +34,6 @@ const currentPageName =
       </div>
     </main>
 
-    <Footer />
-
     <script>
       import "../styles/global.css";
       import AOS from "aos";
@@ -55,13 +45,4 @@ const currentPageName =
       });
     </script>
   </body>
-</html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+</Layout>
